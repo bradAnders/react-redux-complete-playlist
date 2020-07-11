@@ -11,6 +11,14 @@ class App extends Component {
       { name: 'Crystal', age:25, belt: 'pink', id: 3 }
     ]
   }
+  addNinja = ninja => {
+    ninja.id = Math.random();
+    console.log('adding', ninja);
+    let ninjas = [...this.state.ninjas, ninja];
+    this.setState({
+      ninjas: ninjas
+    })
+  }
   render() {
     return(
       <div className="App">
@@ -18,7 +26,7 @@ class App extends Component {
           <h1>My first React app!</h1>
           <p>Welcome :)</p>
           <Ninjas ninjas={ this.state.ninjas }/>
-          <AddNinja />
+          <AddNinja addNinja={ this.addNinja }/>
         </header>
       </div>
     );
